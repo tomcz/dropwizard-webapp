@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+defaultTasks 'clean', 'build'
+
+mainClassName = 'example.HelloWorldService'
+
+repositories {
+  mavenCentral()
+}
+
+configurations.all {
+  exclude(group: 'commons-logging')
+}
+
+dependencies {
+  compile 'com.yammer.dropwizard:dropwizard-core:0.6.1'
+  compile 'com.fiestacabin.dropwizard.guice:dropwizard-guice:0.6.1'
+}
