@@ -1,7 +1,7 @@
 Dropwizard with Guice
 =====================
 
-Dropwizard has a truly excellent [getting started guide](http://dropwizard.codahale.com/getting-started/), but I wanted to try to create a variation of the hello world application that was wired together using Google's [Guice](https://code.google.com/p/google-guice/). I'm not in love with DI frameworks but I was curious to see what it took to use one with Dropwizard. Verdict: not much at all. See for yourself.
+Dropwizard has a truly excellent [getting started guide](http://dropwizard.codahale.com/getting-started/), but I wanted to try to create a variation of the hello world application that was wired together using Google's [Guice](https://code.google.com/p/google-guice/). I'm not in love with DI frameworks but I was curious to see what it took to use one with Dropwizard. Verdict: not much at all, thanks to Jared Stehler's [dropwizard-guice](https://github.com/jaredstehler/dropwizard-guice). See for yourself.
 
 Requirements
 ------------
