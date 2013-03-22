@@ -1,10 +1,18 @@
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'application'
 
-defaultTasks 'clean', 'build'
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'eu.appsatori:gradle-fatjar-plugin:0.2-rc1'
+  }
+}
 
-mainClassName = 'example.HelloWorldService'
+apply plugin: 'fatjar'
+
+defaultTasks 'clean', 'test', 'fatJar'
 
 repositories {
   mavenCentral()
@@ -17,4 +25,19 @@ configurations.all {
 dependencies {
   compile 'com.yammer.dropwizard:dropwizard-core:0.6.1'
   compile 'com.fiestacabin.dropwizard.guice:dropwizard-guice:0.6.1'
+}
+
+fatJarPrepareFiles {
+  exclude 'META-INF/*.SF'
+  exclude 'META-INF/*.DSA'
+  exclude 'META-INF/*.RSA'
+}
+
+fatJar {
+  manifest {
+    attributes(
+        "Main-Class": 'example.HelloWorldService',
+        "Implementation-Version": version?: 'dev'
+    )
+  }
 }
